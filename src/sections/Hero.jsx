@@ -6,6 +6,10 @@ import SalaHacker from "../components/SalaHacker"
 import Loader from "../components/Canvas"
 import { calcularTamanhos } from "../constants/index"
 import { Leva } from 'leva';
+import Alvo from "../components/Alvo"
+import ReactLogo from "../components/ReactLogo"
+import Cubo from "../components/Cubo"
+import Aneis from "../components/Anel"
 
 
 const Hero = () => {
@@ -22,14 +26,19 @@ const Hero = () => {
         <p className="sm:text-3xl text-xl font-medium text-white text-center font-generalsans">
          Olá eu sou Eliseu <span className="waving-hand">👋</span>
         </p>
-        <p className="hero_tag text-gray_gradient">Trabalho na area de Desenvolvimento</p>
+        <p className="hero_tag text-gray_gradient">Sou da area de Desenvolvimento</p>
       </div>
       <div className="w-full h-full absolute inset-0">
        <Canvas className="w-full h-full ">
         <Suspense fallback={<Loader />}>
            <PerspectiveCamera makeDefault position={[0, 0, 30]} />
            <SalaHacker scale={tamanhos.deskScale} position={tamanhos.deskPosition} rotation={[0, -Math.PI, 0]} />
-            <Leva hidden />
+            <group>
+              <Alvo  position={tamanhos.targetPosition} />
+              <ReactLogo position={tamanhos.reactLogoPosition} />
+              <Cubo position={tamanhos.cubePosition} />
+              <Aneis position={tamanhos.ringPosition} />
+            </group>
            <ambientLight intensity={1} />
             <directionalLight position={[10, 10, 10]} intensity={0.5} />
         </Suspense>
