@@ -17,7 +17,13 @@ const Sobre = () => {
             </div>
           </div>
         </div>
-        
+        <div className="col-span-1 xl:row-span-4">
+          <div className="grid-container">
+            <img src="/assets/grid2.png" alt="Foto 2" className="w-full h-fit sm:h-[276px] object-contain" />
+            <p className="grid-headtext">Tech Stack</p>
+            <p className="grid-subtext">Eu me especializo em uma variedade de linguagens, frameworks e ferramentas que me permitem construir aplicações robustas e escaláveis.</p>
+          </div>
+        </div>
       </div>
     </section>
   );
