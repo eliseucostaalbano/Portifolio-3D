@@ -1,7 +1,21 @@
 import Globe from "react-globe.gl";
 import Botão from "../components/Botão";
+import { useState } from "react";
 
 const Sobre = () => {
+
+  const [copiaSuccesso, setCopiaSuccesso] = useState(false);
+
+const LidarCopia = () => {
+    navigator.clipboard.writeText('eliseualbano57@gmail.com');
+    setCopiaSuccesso(true);
+
+    setTimeout(() => {
+      setCopiaSuccesso(false);
+    }, 2000);
+  };
+
+
   return (
     <section className="text-white-800 c-space my-20">
       <div className="grid xl:grid-cols-3 xl:grid-rows-6 md:grid-cols-2 grid-cols-1 gap-5 h-full">
@@ -51,7 +65,31 @@ const Sobre = () => {
              </div>
            </div>
         </div>
+        <div className="xl:col-span-2 xl:row-span-3">
+          <div className="grid-container">
+            <img src="/assets/grid3.png" alt="Foto 3" className="w-full h-fit sm:h-[266px] object-contain" />
+            <div>
+              <p className="grid-headtext">Minha Paixão por Programação</p>
+              <p className="grid-subtext">
+                Eu adoro resolver problemas e construir coisas através do código. Programação não é apenas minha
+                profissão—é minha paixão. Gosto de explorar novas tecnologias e aprimorar minhas habilidades.
+              </p>
+            </div>
+            </div>
+        </div>
 
+       <div className="xl:col-span-1 xl:row-span-3">
+         <div className="grid-container">
+            <img src="/assets/grid4.png" alt="Foto 4" className="w-full h-fit md:h-[126px] sm:h-[276px] object-contain sm:object-top" />
+            <div className="space-y-2">
+             <p className="grid-subtext text-center">Me contate</p>
+             <div className="copy-container" onClick={LidarCopia}>
+               <img src={copiaSuccesso ? 'assets/tick.svg' : 'assets/copy.svg'} alt="" />
+                <p className="lg:text-2xl md:text-xl font-medium text-gray_gradient text-white">eliseualbano57@gmail.com</p>
+             </div>
+            </div>
+         </div>
+       </div>
       </div>
     </section>
   );
